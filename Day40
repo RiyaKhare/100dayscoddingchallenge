@@ -1,0 +1,27 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+import java.lang.reflect.*;
+
+
+class Singleton{
+public String str;
+private static Singleton INSTANCE;
+
+private Singleton() {}
+
+public static Singleton getSingleInstance() {
+    if (INSTANCE != null) {
+        return INSTANCE;
+    }
+    synchronized(Singleton.class) {
+        if (INSTANCE != null) {
+            return INSTANCE;
+        }
+        INSTANCE = new Singleton();
+        return INSTANCE;
+    }
+}
+}
