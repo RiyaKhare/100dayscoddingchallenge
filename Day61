@@ -1,0 +1,10 @@
+//Java Convert String to int
+//We can convert String to an int in java using Integer.parseInt() method. To convert String into Integer, we can use Integer.valueOf() method which returns instance of Integer class.
+
+public class StringCon {
+    public static void main(String[] args) {
+        String s="500";
+        int i= Integer.parseInt(s);
+        System.out.println(i);
+    }
+}
