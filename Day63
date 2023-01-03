@@ -1,0 +1,25 @@
+//print the following pattern
+
+class Pattern{
+    public static void main(String[] args) {
+        int i,j,lines=8;  
+   for(i=1;i<=lines;i++){  
+      for(j=lines;j>=1;j--){
+          if(j!=i)  
+           System.out.print(j);  
+           else  
+            System.out.print("*");  
+   }  
+   System.out.println("");  
+   }  
+    }} 
+   
+   //Output-show in pattern form
+8765432*
+876543*1
+87654*21
+8765*321
+876*4321
+87*54321
+8*654321
+*7654321
