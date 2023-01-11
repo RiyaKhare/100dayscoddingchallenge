@@ -1,0 +1,103 @@
+//PROBLEM: Write a program to perform insertion,traversing and deletion operation on Linked List
+
+LANGUAGE: JAVA
+
+public class App {
+    Node head;
+
+    class Node {
+        int data;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public void add(int key) {
+        Node newnode = new Node(key);
+        if (contain(key)) {
+            return;
+        }
+        if (head == null) {
+            head = newnode;
+            return;
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newnode;
+    }
+
+    public boolean contain(int key) {
+        boolean x = false;
+        Node temp = head;
+        while (temp != null) {
+            if (temp.data == key) {
+                x = true;
+                return x;
+            }
+            temp = temp.next;
+        }
+        return x;
+    }
+
+    public void remove(int key) {
+        Node temp = head;
+
+        // iF it is first node
+        if (head.data == key) {
+            head = head.next;
+        }
+        // middle node
+        Node middlenode = temp.next;
+        while (middlenode.next != null) {
+            if (middlenode.data == key) {
+                temp.next = middlenode.next;
+                return;
+            }
+            temp = temp.next;
+            middlenode = middlenode.next;
+        }
+        // last node check
+        if (middlenode.data == key) {
+            temp.next = null;
+        }
+    }
+
+    public void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.println(temp.data);
+            temp = temp.next;
+        }
+    }
+
+    public static void main(String args[]) {
+        App obj = new App();
+        obj.add(10);
+        obj.add(20);
+        obj.add(30);
+        obj.add(40);
+        obj.add(40);
+        obj.add(40);
+        obj.display();
+        obj.remove(20);
+        System.out.println("*****************");
+        obj.display();
+        
+    }
+
+}
+
+Output:-
+10
+20
+30
+40
++++++++++++++++++++
+10
+30
+40
